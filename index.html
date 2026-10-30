@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Web Manager</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Semantic Header -->
+    <header class="bg-blue-600 text-white p-6 shadow-md text-center">
+        <h1 class="text-3xl font-bold">Smart Task Web Manager</h1>
+        <p class="text-sm mt-1">Organize your daily tasks easily</p>
+    </header>
+
+    <!-- Semantic Main -->
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+
+        <!-- CRUD Section -->
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Task CRUD Operations</h2>
+            <div class="flex gap-2 mb-4">
+                <input type="text" id="taskInput" placeholder="Enter a new task..." class="flex-1 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="addBtn" onclick="addOrUpdateTask()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 font-medium">Add Task</button>
+            </div>
+
+            <!-- Search Filter -->
+            <div class="mb-4">
+                <input type="text" id="searchInput" placeholder="Search tasks using filter()..." onkeyup="searchTasks()" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <ul id="taskList" class="space-y-2">
+                <!-- Tasks will dynamically load here -->
+            </ul>
+        </section>
+
+        <!-- API Integration Section -->
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">External API Data (Axios)</h2>
+            <button onclick="fetchApiData()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium mb-4">Fetch Users from API</button>
+            <div id="apiLoading" class="hidden text-blue-600 font-medium">Loading data...</div>
+            <div id="apiError" class="hidden text-red-600 font-medium"></div>
+            <div id="apiDataContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <!-- API cards will load here -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2026 SmartTask Web Assignment</p>
+    </footer>
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
